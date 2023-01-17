@@ -29,12 +29,15 @@ RUN ls -la /var/www/
 RUN cd /var/www/ && \
   unzip /var/www/app_latest.zip 
   RUN ls -la /var/www
-  rm /var/www/app_latest.zip && \
-  rm -rf /var/www/html
- RUN mv s html
  
-RUN cd /var/www/html/
-RUN ls -la
+ 
+ 
+ #rm /var/www/app_latest.zip && \
+ # rm -rf /var/www/html
+ #RUN mv s html
+ #
+#RUN cd /var/www/html/
+#RUN ls -la
  
  RUN mkdir /storage
 
