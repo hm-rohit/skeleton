@@ -30,8 +30,9 @@ RUN cd /var/www/html/ && \
 
 
 
-##RUN cd /var/www/html/.build/.config_files/
-RUN ls
+RUN cd /var/www/html/
+RUN ls -la
+
 
 #RUN apt-get update && apt-get install -y  vim
 #RUN apt-get update && apt-get install -y  lynx
