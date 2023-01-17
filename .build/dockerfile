@@ -22,12 +22,13 @@ RUN apt-get update && apt-get install -y  unzip
 EXPOSE 80 2222
 ## Copy site into place.
 RUN ls -la /var/www/html 
+
 ADD app_latest.zip /var/www/html
 RUN ls -la /var/www/html 
 
-RUN cd /var/www/html/ 
-RUN unzip app_latest.zip 
-RUN rm -rf /var/www/html/app_latest.zip
+RUN cd /var/www/html/ && \
+  unzip app_latest.zip && \
+  rm /var/www/html/app_latest.zip
  
 RUN cd /var/www/html/
 RUN ls -la
