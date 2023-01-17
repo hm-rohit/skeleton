@@ -26,7 +26,7 @@ RUN cd /var/www/html/ && \
   unzip app_latest.zip && \
   rm /var/www/html/app_latest.zip
   
- RUN mkdir /nfs
+ RUN mkdir /storage
 
 
 
