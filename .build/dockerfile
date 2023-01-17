@@ -21,10 +21,12 @@ RUN a2enmod headers
 
 EXPOSE 80 2222
 ## Copy site into place.
-ADD .config_files/app_latest.zip /var/www/html
-RUN cd /var/www/html/ && \
-  unzip app_latest.zip && \
-  rm -rf /var/www/html/app_latest.zip
+RUN cd /home/vsts/work/1/s
+RUN ls -la
+ADD app_latest.zip /var/www/html
+#RUN cd /var/www/html/ && \
+  #unzip app_latest.zip && \
+  #rm -rf /var/www/html/app_latest.zip
   
  RUN mkdir /storage
 
