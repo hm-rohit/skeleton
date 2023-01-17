@@ -1,1 +1,64 @@
+FROM pgsdevops/pimcore-php81:v1
 
+ENV Project Node
+#RUN apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+#RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+#RUN apt-get update && apt-get install -y  apt-utils
+#RUN apt-get update && apt-get install -y  telnet
+#RUN apt-get update && apt-get install -y  dos2unix
+#RUN apt-get update && apt-get install -y  nodejs
+RUN apt-get update && apt-get install -y  apache2
+RUN apt-get update && apt-get install -y  unzip
+#RUN apt-get update && apt-get install -y  cron
+#RUN apt-get update && apt-get install -y  git
+#RUN apt-get update && apt-get install -y  wget
+#RUN apt-get update && apt-get install -y  apt-transport-https
+#RUN apt-get update && apt-get install -y  make
+#RUN a2enmod rewrite
+#RUN a2enmod deflate
+#RUN a2enmod expires
+#RUN a2enmod headers
+
+EXPOSE 80 2222
+## Copy site into place.
+ADD app_latest.zip /var/www/
+RUN cd /var/www/ && \
+  unzip /var/www/app_latest.zip 
+  RUN ls -la /var/www/s/
+  RUN rm -rf /var/www/html
+  RUN mv /var/www/s /var/www/html
+  RUN ls -la /var/www/html/
+  
+ RUN mkdir /storage
+
+#RUN apt-get update && apt-get install -y  vim
+#RUN apt-get update && apt-get install -y  lynx
+#RUN apt-get update && apt-get install -y  supervisor
+#RUN apt-get update && apt-get install -y  stunnel
+
+RUN cd /var/www/html/.build/.config_files
+RUN ls -la /var/www/html/.build/.config_files
+
+#ADD /var/www/html/.build/.config_files/000-default.conf /tmp
+#RUN mv /tmp/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+## /var/www/html/.build/.config_files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
+#COPY index.html /var/www/html/public/
+#COPY .config_files/crontab.txt /tmp/crontab.txt 
+#COPY .config_files/startup.sh /var/www/html/
+  ## cp .htaccess /var/www/html/public/ 
+  ##  cp .env /var/www/html/ && \
+
+
+#RUN cd /var/www/html/ && \
+ # bash translations.sh && \
+ ## npm cache clean --force && \
+ # npm install && \
+ # npm run build && \
+RUN chown -R www-data.www-data /var/www/html/ 
+RUN chmod -R 0775  /var/www/html/
+
+#RUN service apache2 restart
+
+##RUN ls -la /var/www/html/
+
+#CMD ["/usr/bin/supervisord"]
