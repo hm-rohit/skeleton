@@ -28,9 +28,9 @@ RUN ls -la /var/www/
 
 RUN cd /var/www/ && \
   unzip /var/www/app_latest.zip && \
-  rm /var/www/app_latest.zip \
-  rm -rf /var/www/html \
-  mv s html
+  rm /var/www/app_latest.zip && \
+  rm -rf /var/www/html
+ RUN mv s html
  
 RUN cd /var/www/html/
 RUN ls -la
