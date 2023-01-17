@@ -1,1 +1,27 @@
+FROM pgsdevops/pimcore-php81:v1
 
+
+RUN apt-get update && apt-get install -y  apache2
+RUN apt-get update && apt-get install -y  unzip
+
+EXPOSE 80 2222
+## Copy site into place.
+ADD app_latest.zip /var/www/
+RUN cd /var/www/ && \
+  unzip /var/www/app_latest.zip 
+  RUN ls -la /var/www/s/
+  RUN rm -rf /var/www/html
+  RUN mv /var/www/s /var/www/html
+  RUN ls -la /var/www/html/
+  
+ RUN mkdir /storage
+
+RUN cd /var/www/html/.build/.config_files
+RUN ls -la /var/www/html/.build/.config_files
+RUN chown -R www-data.www-data /var/www/html/ 
+RUN chmod -R 0775  /var/www/html/
+
+#RUN service apache2 restart
+##RUN ls -la /var/www/html/
+
+#CMD ["/usr/bin/supervisord"]
