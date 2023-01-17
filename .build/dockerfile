@@ -27,7 +27,8 @@ ADD app_latest.zip /var/www/
 RUN ls -la /var/www/
 
 RUN cd /var/www/ && \
-  unzip /var/www/app_latest.zip && \
+  unzip /var/www/app_latest.zip 
+  RUN ls -la /var/www
   rm /var/www/app_latest.zip && \
   rm -rf /var/www/html
  RUN mv s html
