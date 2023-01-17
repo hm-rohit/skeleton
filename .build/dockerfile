@@ -37,18 +37,16 @@ RUN cd /var/www/html/ && \
 #RUN apt-get update && apt-get install -y  supervisor
 #RUN apt-get update && apt-get install -y  stunnel
 
-
-COPY .config_files/000-default.conf /etc/apache2/sites-enabled/
-COPY .config_files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
-COPY .config_files/index.html /var/www/html/public#/
+RUN cd /var/www/html/.build/.config_files
+RUN ls 
+COPY 000-default.conf /etc/apache2/sites-enabled/
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
+#COPY index.html /var/www/html/public/
 #COPY .config_files/crontab.txt /tmp/crontab.txt 
 #COPY .config_files/startup.sh /var/www/html/
   ## cp .htaccess /var/www/html/public/ 
   ##  cp .env /var/www/html/ && \
 
-
-
-##RUN ls -la /var/www/html/
 
 #RUN cd /var/www/html/ && \
  # bash translations.sh && \
