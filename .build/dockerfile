@@ -24,12 +24,13 @@ EXPOSE 80 2222
 RUN ls -la /var/www/html 
 ADD app_latest.zip /var/www/html
 RUN ls -la /var/www/html 
-RUN cd /var/www/html/ && \
- unzip app_latest.zip && \
- rm -rf /var/www/html/app_latest.zip
+
+RUN cd /var/www/html/ 
+RUN unzip app_latest.zip 
+RUN rm -rf /var/www/html/app_latest.zip
  
- RUN pwd 
- RUN ls -la
+RUN cd /var/www/html/
+RUN ls -la
  
  RUN mkdir /storage
 
