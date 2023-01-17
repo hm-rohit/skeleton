@@ -27,7 +27,10 @@ RUN ls -la /var/www/html
 RUN cd /var/www/html/ && \
  unzip app_latest.zip && \
  rm -rf /var/www/html/app_latest.zip
-  
+ 
+ RUN pwd 
+ RUN ls -la
+ 
  RUN mkdir /storage
 
 
