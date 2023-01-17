@@ -43,9 +43,10 @@ RUN cd /var/www/ && \
 
 RUN cd /var/www/html/.build/.config_files
 RUN ls -la /var/www/html/.build/.config_files
-COPY /var/www/html/.build/.config_files/000-default.conf /tmp
+
+ADD /var/www/html/.build/.config_files/000-default.conf /tmp
 RUN mv /tmp/000-default.conf /etc/apache2/sites-enabled/000-default.conf
-#COPY /var/www/html/.build/.config_files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
+## /var/www/html/.build/.config_files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
 #COPY index.html /var/www/html/public/
 #COPY .config_files/crontab.txt /tmp/crontab.txt 
 #COPY .config_files/startup.sh /var/www/html/
