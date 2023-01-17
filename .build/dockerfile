@@ -30,7 +30,7 @@ RUN cd /var/www/html/ && \
 
 
 
-RUN cd /var/www/html/.build/.config_files/
+##RUN cd /var/www/html/.build/.config_files/
 RUN ls
 
 #RUN apt-get update && apt-get install -y  vim
