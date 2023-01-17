@@ -36,8 +36,8 @@ RUN cd /var/www/ && \
 #RUN apt-get update && apt-get install -y  supervisor
 #RUN apt-get update && apt-get install -y  stunnel
 
-RUN cd /var/www/html/.build/.config_files
-RUN ls -la /var/www/html/.build/.config_files
+#RUN cd /var/www/html/.build/.config_files
+#RUN ls -la /var/www/html/.build/.config_files
 
 #ADD /var/www/html/.build/.config_files/000-default.conf /tmp
 #RUN mv /tmp/000-default.conf /etc/apache2/sites-enabled/000-default.conf
