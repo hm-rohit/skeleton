@@ -29,6 +29,11 @@ RUN ls -la /var/www/
 RUN cd /var/www/ && \
   unzip /var/www/app_latest.zip 
   RUN ls -la /var/www
+  RUN ls -la /var/www/s/
+  RUN rm -rf /var/www/html
+  RUN mv /var/www/s /var/www/html
+  RUN ls -la /var/www/html/
+  
  
  
  
