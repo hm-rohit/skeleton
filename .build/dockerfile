@@ -21,14 +21,9 @@ RUN apt-get update && apt-get install -y  unzip
 
 EXPOSE 80 2222
 ## Copy site into place.
-RUN ls -la /var/www/html 
-
 ADD app_latest.zip /var/www/
-RUN ls -la /var/www/
-
 RUN cd /var/www/ && \
   unzip /var/www/app_latest.zip 
-  RUN ls -la /var/www
   RUN ls -la /var/www/s/
   RUN rm -rf /var/www/html
   RUN mv /var/www/s /var/www/html
@@ -62,7 +57,7 @@ RUN ls -la /var/www/html/.build/.config_files
 RUN chown -R www-data.www-data /var/www/html/ 
 RUN chmod -R 0775  /var/www/html/
 
-RUN service apache2 restart
+#RUN service apache2 restart
 
 ##RUN ls -la /var/www/html/
 
