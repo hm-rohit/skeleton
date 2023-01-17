@@ -34,19 +34,7 @@ RUN cd /var/www/ && \
   RUN mv /var/www/s /var/www/html
   RUN ls -la /var/www/html/
   
- 
- 
- 
- #rm /var/www/app_latest.zip && \
- # rm -rf /var/www/html
- #RUN mv s html
- #
-#RUN cd /var/www/html/
-#RUN ls -la
- 
  RUN mkdir /storage
-
-
 
 #RUN apt-get update && apt-get install -y  vim
 #RUN apt-get update && apt-get install -y  lynx
@@ -54,8 +42,8 @@ RUN cd /var/www/ && \
 #RUN apt-get update && apt-get install -y  stunnel
 
 RUN cd /var/www/html/.build/.config_files
-RUN ls 
-COPY /var/www/html/.build/.config_files/000-default.conf /etc/apache2/sites-enabled/
+RUN ls -la /var/www/html/.build/.config_files
+COPY /var/www/html/.build/.config_files/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 COPY /var/www/html/.build/.config_files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
 #COPY index.html /var/www/html/public/
 #COPY .config_files/crontab.txt /tmp/crontab.txt 
